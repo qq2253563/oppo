@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <com.heytap.wearable.support.widget.HeyMainTitleBar
+        android:id="@+id/title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"/>
+
+
+    <com.student.patient.widget.AutoSwitchVisibilityLayout
+        android:id="@+id/auto_layout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:defaultShowId="@id/list"
+        app:errorLayout="@layout/empty_layout">
+
+    <androidx.wear.widget.WearableRecyclerView
+        android:id="@+id/list"
+        android:scrollbars="vertical"
+        android:layout_marginStart="10dp"
+        android:layout_marginEnd="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    </com.student.patient.widget.AutoSwitchVisibilityLayout>
+</LinearLayout>
