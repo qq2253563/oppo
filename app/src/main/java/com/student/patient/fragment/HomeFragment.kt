@@ -55,7 +55,6 @@ class HomeFragment : Fragment(){
 
     private fun initView(){
         title.setTitle("首页")
-        auto_layout.showError()
         listAdapter = HomeListAdapter(true)
         list.run {
             layoutManager = LinearLayoutManager(context)

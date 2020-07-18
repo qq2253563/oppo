@@ -2,6 +2,7 @@ package com.student.patient.activity
 
 import android.content.Context
 import android.content.Intent
+import android.content.res.Resources
 import android.graphics.Bitmap
 import android.os.Bundle
 import android.text.TextUtils
@@ -38,11 +39,16 @@ class QRCodeActivity : AppCompatActivity() {
         qr_name.text = intent.getStringExtra(NAME)
         qr_title.setBackListener(null,this)
         Thread{
-            val createQRImage = createQRImage(intent.getStringExtra(URL), 250, 250)
+            val createQRImage = createQRImage(intent.getStringExtra(URL), dp2px(300f), dp2px(300f))
             qr_code.post {
                 qr_code.setImageBitmap(createQRImage)
             }
         }.start()
+    }
+
+    fun dp2px(dpValue: Float): Int {
+        return (0.5f + dpValue * Resources.getSystem()
+            .displayMetrics.density).toInt()
     }
 
     fun createQRImage(content: String?, widthPix: Int, heightPix: Int): Bitmap? {

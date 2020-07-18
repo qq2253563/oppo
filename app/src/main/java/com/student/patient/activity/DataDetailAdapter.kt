@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.student.patient.R
 import com.student.patient.db.DB
@@ -20,6 +21,7 @@ class DataDetailAdapter(val isHome: Boolean) : RecyclerView.Adapter<DataDetailAd
     inner class Holder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         val text = itemView.findViewById<TextView>(R.id.text)
         val check = itemView.findViewById<ImageView>(R.id.check)
+        val root = itemView.findViewById<ConstraintLayout>(R.id.root)
     }
 
     override fun getItemCount(): Int = data.size
@@ -41,7 +43,7 @@ class DataDetailAdapter(val isHome: Boolean) : RecyclerView.Adapter<DataDetailAd
         } else {
             holder.check.setImageResource(R.drawable.ic_uncheck)
         }
-        holder.itemView.setOnClickListener {
+        holder.root.setOnClickListener {
             if (isHome){
                 QRCodeActivity.newInstance(context,data[position].url,data[position].name)
                 return@setOnClickListener

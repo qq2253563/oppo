@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.annotation.RawRes
+import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.student.patient.R
 import com.student.patient.activity.DataDetailActivity
@@ -65,7 +66,7 @@ class HomeListAdapter(val isHome: Boolean) :
 
         }
         else  holder.text.text = data[position].type
-        holder.itemView.setOnClickListener {
+        holder.root.setOnClickListener {
             DataDetailActivity.newInstance(context, data[position].homeType, data[position].typeNumber,holder.text.text.toString(),isHome)
         }
     }
@@ -74,6 +75,7 @@ class HomeListAdapter(val isHome: Boolean) :
         val text = itemView.findViewById<TextView>(R.id.text)
         val sign = itemView.findViewById<View>(R.id.sign)
         val more = itemView.findViewById<View>(R.id.more)
+        val root = itemView.findViewById<ConstraintLayout>(R.id.root)
     }
 
     fun addData(list: List<Sickness>) {
