@@ -12,4 +12,5 @@ data class Sickness(@PrimaryKey(autoGenerate = true)val id:Int,
                     @ColumnInfo(name = "type_number")
                     val typeNumber:String,
                     val homeType:String,
+                    var time:Long,
                     var collect:Int)

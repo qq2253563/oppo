@@ -3,13 +3,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/black"
     android:orientation="vertical">
 
     <com.heytap.wearable.support.widget.HeyMainTitleBar
         android:id="@+id/title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"/>
-
 
     <com.student.patient.widget.AutoSwitchVisibilityLayout
         android:id="@+id/auto_layout"
@@ -24,7 +24,8 @@
         android:id="@+id/list"
         android:scrollbars="vertical"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent"
+        android:layout_marginBottom="4dp"/>
 
     </com.student.patient.widget.AutoSwitchVisibilityLayout>
 </LinearLayout>

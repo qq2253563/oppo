@@ -41,7 +41,7 @@ class MainActivity : AppCompatActivity() {
                 if (line != null){
                     // 把一行数据分割成多个字段
                     val split = line.split(",")
-                    dataLists.add(Sickness(i,split[0],split[1],split[2],split[3],split[4],0))
+                    dataLists.add(Sickness(i,split[0],split[1],split[2],split[3],split[4],0,0))
                     i++
                 }else{
                     break

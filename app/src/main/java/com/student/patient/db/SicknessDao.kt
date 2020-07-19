@@ -16,8 +16,8 @@ interface SicknessDao{
     fun getAllType() : LiveData<List<Sickness>>
 
     //查询所有选择分类
-    @Query("select * from Sickness where collect = 1 group by homeType")
-    fun getCheckAllType() : LiveData<List<Sickness>>
+    @Query("select * from Sickness where collect = 1 order by time asc")
+    fun getCheckAll() : LiveData<List<Sickness>>
 
     //查询该分类所有数据
     @Query("select * from Sickness where type_number = :typeNumber")

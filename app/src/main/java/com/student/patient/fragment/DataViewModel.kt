@@ -14,7 +14,7 @@ class DataViewModel(application: Application) : AndroidViewModel(application) {
 
     fun queryTypeSickness(typeNumber:String):LiveData<List<Sickness>> = DB.getInstance().sicknessDao.getTypeSickness(typeNumber)
 
-    fun queryAllCheckType():LiveData<List<Sickness>> = DB.getInstance().sicknessDao.getCheckAllType()
+    fun queryAllCheck():LiveData<List<Sickness>> = DB.getInstance().sicknessDao.getCheckAll()
 
     fun queryCheckTypeSickness(homeType:String):LiveData<List<Sickness>> = DB.getInstance().sicknessDao.getCheckTypeSickness(homeType)
 }

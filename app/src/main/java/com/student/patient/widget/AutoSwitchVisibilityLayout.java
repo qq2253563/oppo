@@ -169,7 +169,6 @@ public class AutoSwitchVisibilityLayout extends FrameLayout {
 
     private LayoutParams generateLayoutParams() {
         LayoutParams layoutParams = new LayoutParams(LayoutParams.WRAP_CONTENT, LayoutParams.WRAP_CONTENT);
-        layoutParams.gravity = Gravity.CENTER;
         return layoutParams;
     }
 

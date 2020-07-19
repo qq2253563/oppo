@@ -1,60 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.core.widget.NestedScrollView  xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:paddingTop="16dp"
-    android:paddingBottom="16dp"
-    android:gravity="center"
-    android:orientation="vertical"
-    android:background="@drawable/empty_bg">
+    android:layout_height="match_parent">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginStart="7dp"
-        android:layout_marginEnd="7dp">
-
-        <View
-            android:layout_width="13dp"
-            android:layout_height="13dp"
-            android:layout_marginTop="2dp"
-            android:background="@drawable/green"/>
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="2dp"
-            android:textSize="14dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginTop="8dp"
+            android:textSize="18dp"
             android:textColor="#FDFDFD"
+            android:maxEms="10"
             android:text="右滑至数据库添加“疾病条目”至首页疾病条目。"/>
 
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:layout_marginStart="7dp"
-        android:layout_marginEnd="7dp">
-
-        <View
-            android:layout_width="13dp"
-            android:layout_height="13dp"
-            android:layout_marginTop="2dp"
-            android:background="@drawable/green"/>
-
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="2dp"
-            android:textSize="14dp"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="12dp"
+            android:layout_marginEnd="7dp"
+            android:textSize="18dp"
+            android:maxEms="10"
             android:textColor="#FDFDFD"
             android:text="点击首页疾病条目跳转至二维码页面，患者扫码，查看相关患教内容。 "/>
 
-
     </LinearLayout>
 
-</LinearLayout>
+</androidx.core.widget.NestedScrollView>

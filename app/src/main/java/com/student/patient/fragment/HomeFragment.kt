@@ -43,7 +43,7 @@ class HomeFragment : Fragment(){
 
 
     private fun initData() {
-        viewModel.queryAllCheckType().observe(viewLifecycleOwner, Observer {
+        viewModel.queryAllCheck().observe(viewLifecycleOwner, Observer {
             listAdapter.addData(it)
             if (listAdapter.itemCount>0){
                 auto_layout.showDefault()

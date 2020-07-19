@@ -8,6 +8,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
+import com.heytap.wearable.support.widget.HeySingleItemWithCheckBox
 import com.student.patient.R
 import com.student.patient.db.DB
 import com.student.patient.db.Sickness
@@ -19,9 +20,7 @@ class DataDetailAdapter(val isHome: Boolean) : RecyclerView.Adapter<DataDetailAd
     private lateinit var context:Context
 
     inner class Holder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val text = itemView.findViewById<TextView>(R.id.text)
-        val check = itemView.findViewById<ImageView>(R.id.check)
-        val root = itemView.findViewById<ConstraintLayout>(R.id.root)
+        val itemCheck = itemView.findViewById<HeySingleItemWithCheckBox>(R.id.data_check_item)
     }
 
     override fun getItemCount(): Int = data.size
@@ -37,18 +36,20 @@ class DataDetailAdapter(val isHome: Boolean) : RecyclerView.Adapter<DataDetailAd
 
     override fun onBindViewHolder(holder: Holder, position: Int) {
         if (data.isNullOrEmpty()) return
-        holder.text.text = data[position].name
+        holder.itemCheck.a.maxLines = 3
+        holder.itemCheck.setTitle(data[position].name)
         if (data[position].collect == 1) {
-            holder.check.setImageResource(R.drawable.ic_check)
+            holder.itemCheck.checkBox.state = 2
         } else {
-            holder.check.setImageResource(R.drawable.ic_uncheck)
+            holder.itemCheck.checkBox.state = 0
         }
-        holder.root.setOnClickListener {
+        holder.itemCheck.setOnClickListener {
             if (isHome){
                 QRCodeActivity.newInstance(context,data[position].url,data[position].name)
                 return@setOnClickListener
             }
             val sickness = data[position]
+            sickness.time = System.currentTimeMillis()
             if(sickness.collect != 1) sickness.collect = 1 else sickness.collect = 0
             DB.getInstance().sicknessDao.updateCheck(sickness)
         }

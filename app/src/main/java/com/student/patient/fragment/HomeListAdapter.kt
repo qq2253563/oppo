@@ -9,6 +9,8 @@ import android.widget.TextView
 import androidx.annotation.RawRes
 import androidx.constraintlayout.widget.ConstraintLayout
 import androidx.recyclerview.widget.RecyclerView
+import com.heytap.wearable.support.widget.HeySingleDefaultItem
+import com.heytap.wearable.support.widget.HeySingleItemWithCheckBox
 import com.student.patient.R
 import com.student.patient.activity.DataDetailActivity
 import com.student.patient.activity.QRCodeActivity
@@ -34,47 +36,47 @@ class HomeListAdapter(val isHome: Boolean) :
 
     override fun onBindViewHolder(holder: HomeListHolder, position: Int) {
         if (isHome) {
-            holder.more.visibility = View.GONE
+            holder.more.primaryImage.visibility = View.GONE
             holder.sign.visibility = View.VISIBLE
         } else {
             holder.more.visibility = View.VISIBLE
             holder.sign.visibility = View.GONE
         }
+        holder.more.a.maxLines = 3
         if (data.isNullOrEmpty()) return
-        if (isHome)
-        when (data[position].homeType) {
-          "101" ->{
-                holder.sign.setBackgroundResource(R.drawable.blue)
-                holder.text.text = "内科"
+        if (isHome){
+            holder.more.setTitle(data[position].name)
+            when (data[position].homeType) {
+                "101" ->{
+                    holder.sign.setBackgroundResource(R.drawable.blue)
+                }
+                "102" -> {
+                    holder.sign.setBackgroundResource(R.drawable.pink)
+                }
+                "103" -> {
+                    holder.sign.setBackgroundResource(R.drawable.orange)
+                }
+                "104" -> {
+                    holder.sign.setBackgroundResource(R.drawable.red)
+                }
+                "105" -> {
+                    holder.sign.setBackgroundResource(R.drawable.purple)
+                }
             }
-           "102" -> {
-                holder.sign.setBackgroundResource(R.drawable.pink)
-                holder.text.text = "妇科"
-            }
-           "103" -> {
-                holder.sign.setBackgroundResource(R.drawable.orange)
-                holder.text.text = "儿科"
-            }
-            "104" -> {
-                holder.sign.setBackgroundResource(R.drawable.red)
-                holder.text.text = "外科"
-            }
-            "105" -> {
-                holder.text.text = "其他疾病"
-                holder.sign.setBackgroundResource(R.drawable.purple)
-            }
-
         }
-        else  holder.text.text = data[position].type
-        holder.root.setOnClickListener {
-            DataDetailActivity.newInstance(context, data[position].homeType, data[position].typeNumber,holder.text.text.toString(),isHome)
+        else  holder.more.setTitle(data[position].type)
+        holder.more.setOnClickListener {
+            if(isHome){
+                QRCodeActivity.newInstance(context,data[position].url,data[position].name)
+            }else{
+                DataDetailActivity.newInstance(context, data[position].homeType, data[position].typeNumber,holder.more.a.text.toString(),isHome)
+            }
         }
     }
 
     inner class HomeListHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val text = itemView.findViewById<TextView>(R.id.text)
         val sign = itemView.findViewById<View>(R.id.sign)
-        val more = itemView.findViewById<View>(R.id.more)
+        val more = itemView.findViewById<HeySingleDefaultItem>(R.id.more)
         val root = itemView.findViewById<ConstraintLayout>(R.id.root)
     }
 
