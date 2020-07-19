@@ -11,23 +11,24 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginStart="12dp"
+            android:layout_marginStart="8dp"
             android:layout_marginTop="8dp"
+            android:layout_marginEnd="8dp"
             android:textSize="18dp"
             android:textColor="#FDFDFD"
             android:maxEms="10"
-            android:text="右滑至数据库添加“疾病条目”至首页疾病条目。"/>
+            android:text="右滑至数据库页面，选择所需的疾病条目添加至首页。"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
-            android:layout_marginStart="12dp"
-            android:layout_marginEnd="7dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
             android:textSize="18dp"
             android:maxEms="10"
             android:textColor="#FDFDFD"
-            android:text="点击首页疾病条目跳转至二维码页面，患者扫码，查看相关患教内容。 "/>
+            android:text="点击首页疾病条目，跳转至相应的二维码页面，患者扫码，查看健康教育内容。"/>
 
     </LinearLayout>
 
